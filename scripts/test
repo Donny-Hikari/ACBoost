@@ -11,7 +11,9 @@ FAIL_COLOR="\e[31m"
 PASS_SUMMARY="All cases passed." # $n_pass, $n_cases
 FAIL_SUMMARY="\$n_fail/\$n_cases cases failed." # $n_pass, $n_cases
 
-if [[ ! -z "$ACBOOST_THEME" ]]; then
+if [ -f "$ACBOOST_ROOT/themes/$ACBOOST_THEME" ]; then
+  . "$ACBOOST_ROOT/themes/$ACBOOST_THEME"
+elif [ -f "$ACBOOST_THEME" ]; then
   . "$ACBOOST_THEME"
 fi
 
