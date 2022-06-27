@@ -3,8 +3,7 @@
 !/themes/
 !/templates/
 !/docs/
-!/test/
-/test/*/build/*
-!/test/meta_test/build/*
+!/metatest/
+/metatest/test-projects/
 
 .DS_Store
