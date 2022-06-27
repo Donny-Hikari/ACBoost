@@ -1,6 +1,7 @@
 /*/
 !/scripts/
 !/themes/
+!/templates/
 !/test/
 /test/*/build/*
 !/test/meta_test/build/*

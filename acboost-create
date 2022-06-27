@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d "$ACBOOST_ROOT" ]; then
+  ACBOOST_ROOT=$(dirname "$0")
+fi
+
 if [ -z "$ACBOOST_DIRPREFIX" ]; then
   ACBOOST_DIRPREFIX=$(date +%Y)
 fi
@@ -10,11 +14,14 @@ problem_dir="$ACBOOST_DIRPREFIX/$problem_name"
 
 if [ -z $problem_name ]; then
   echo "Usage: $0 <problem_name> [problem_url]"
+  return 1 2>/dev/null
   exit 1
 fi
 
+mkdir -p $ACBOOST_DIRPREFIX
 mkdir $problem_dir
 if [ $? != 0 ]; then
+  return 1 2>/dev/null
   exit 1
 fi
 
@@ -31,6 +38,6 @@ if [[ ! -z "$problem_url" ]]; then
   echo "// Url: $problem_url" >> $problem_dir/src/$problem_name.cpp
 fi
 
-ln makefile_template $problem_dir/makefile
+ln $ACBOOST_ROOT/templates/makefile_template $problem_dir/makefile
 
 pushd $problem_dir >/dev/null
