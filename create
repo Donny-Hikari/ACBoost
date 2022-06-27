@@ -1,8 +1,12 @@
 #!/bin/bash
 
+if [ -z "$ACBOOST_DIRPREFIX" ]; then
+  ACBOOST_DIRPREFIX=$(date +%Y)
+fi
+
 problem_name=$1
 problem_url=$2
-problem_dir=$(date +%Y)/$problem_name
+problem_dir="$ACBOOST_DIRPREFIX/$problem_name"
 
 if [ -z $problem_name ]; then
   echo "Usage: $0 <problem_name> [problem_url]"

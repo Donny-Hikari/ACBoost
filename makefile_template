@@ -1,17 +1,22 @@
 
-scriptsdir=../../scripts
+ifeq ($(ACBOOST_ROOT),)
+	ACBOOST_ROOT=../..
+endif
+
+scriptsdir=$(ACBOOST_ROOT)/scripts
+entry=build/main
 
 test: build
 	@$(scriptsdir)/test
 
 build: src/*.cpp
-	g++ -o build/main src/*.cpp --std=c++11
+	g++ -o $(entry) src/*.cpp --std=c++11
 
-run: build
-	./build/main < "cases/$(N).in"
+run:
+	@./$(entry) < "cases/$(N).in"
 
 diff:
-	bash $(scriptsdir)/compare $(N)
+	@bash $(scriptsdir)/compare $(N)
 
 lastnewline:
 	@bash $(scriptsdir)/lastnewline

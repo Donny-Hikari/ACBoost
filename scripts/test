@@ -4,14 +4,15 @@ CASE_TEXT="Case \$case_id"
 PENDING_TEXT=" .... "
 PASS_TEXT="✔️ Pass"
 FAIL_TEXT="⤫ Fail"
+RESET_LINE="\r"
 NORMAL_COLOR="\e[0m"
 PASS_COLOR="\e[32m"
 FAIL_COLOR="\e[31m"
 PASS_SUMMARY="All cases passed." # $n_pass, $n_cases
 FAIL_SUMMARY="\$n_fail/\$n_cases cases failed." # $n_pass, $n_cases
 
-if [[ ! -z $ACBOOST_THEME ]]; then
-  . $ACBOOST_THEME
+if [[ ! -z "$ACBOOST_THEME" ]]; then
+  . "$ACBOOST_THEME"
 fi
 
 declare -i n_pass=0
@@ -24,10 +25,10 @@ for f in "${all_cases[@]}"; do
   printf "[$PENDING_TEXT] $case_text "
   res=$(make -s diff N="$case_id" 2>&1)
   if [ $? == 0 ]; then
-    printf "\r[${PASS_COLOR}${PASS_TEXT}${NORMAL_COLOR}\n"
+    printf "${RESET_LINE}[${PASS_COLOR}${PASS_TEXT}${NORMAL_COLOR}] ${case_text}\n"
     n_pass+=1
   else
-    printf "\r[${FAIL_COLOR}${FAIL_TEXT}${NORMAL_COLOR}] ${FAIL_COLOR}${case_text}${NORMAL_COLOR}\n"
+    printf "${RESET_LINE}[${FAIL_COLOR}${FAIL_TEXT}${NORMAL_COLOR}] ${FAIL_COLOR}${case_text}${NORMAL_COLOR}\n"
   fi
   if [[ ! -z "$res" ]]; then
     echo "=> Input:"

@@ -3,5 +3,5 @@
 N=$1
 
 diff -y --suppress-common-lines \
-  <(./build/main < "cases/$N.in" | make lastnewline | nl) \
+  <(make run N=$N | make lastnewline | nl) \
   <(cat "cases/$N.out" | make lastnewline | nl)

@@ -1,0 +1,11 @@
+
+CASE_TEXT="Case \$case_id"
+PENDING_TEXT=" .... "
+PASS_TEXT="✔️ Pass"
+FAIL_TEXT="⤫ Fail"
+RESET_LINE=""
+NORMAL_COLOR=""
+PASS_COLOR=""
+FAIL_COLOR=""
+PASS_SUMMARY="All cases passed." # $n_pass, $n_cases
+FAIL_SUMMARY="\$n_fail/\$n_cases cases failed." # $n_pass, $n_cases
