@@ -35,7 +35,7 @@ A simple tool that helps you WA faster, therefore AC faster.
 
 1. Use custom theme.
 
-    Custom theme can be load by specifing `ACBOOST_THEME` variable.
+    Custom theme can be load by supplying `ACBOOST_THEME` variable.
 
     ```shell
     ACBOOST_THEME=$ACBOOST_ROOT/themes/ac_boost make test
