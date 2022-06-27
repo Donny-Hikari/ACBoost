@@ -1,5 +1,7 @@
-[ .... ] Case 1 [✔️ Pass] Case 1
-[ .... ] Case 2 [⤫ Fail] Case 2
+[ .... ] Case 1 
+[✔︎ Pass] Case 1
+[ .... ] Case 2 
+[x Fail] Case 2
 => Input:
 
 => Output:

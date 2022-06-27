@@ -25,6 +25,13 @@ A simple tool that helps you WA faster, therefore AC faster.
 
     Or simply just `make`.
 
+    An example output (with the ac_boost theme).
+
+    > [<span style="color:green">✔︎ AC</span>] Case 1  
+    > [<span style="color:green">✔︎ AC</span>] Case 2  
+    > [<span style="color:green">✔︎ AC</span>] Case 3  
+    > <span style="color:green">All cases AC.</span>
+
 5. Enjoy your WAs and ACs.
 
 ## Advance Usage
@@ -66,4 +73,15 @@ A simple tool that helps you WA faster, therefore AC faster.
     ```shell
     pushd test/meta_test
     make test
+    ```
+
+## FAQ
+
+1. Cannot execute scripts.
+
+    Grant permission to the scripts.
+
+    ```shell
+    chmod ug+x acboost-create
+    chmod ug+x scripts/*
     ```

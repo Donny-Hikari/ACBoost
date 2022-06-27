@@ -7,7 +7,7 @@ scriptsdir=$(ACBOOST_ROOT)/scripts
 entry=build/main
 
 test: build
-	@$(scriptsdir)/test
+	@bash $(scriptsdir)/test
 
 build: src/*.cpp
 	g++ -o $(entry) src/*.cpp --std=c++11

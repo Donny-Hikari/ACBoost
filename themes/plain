@@ -1,9 +1,9 @@
 
 CASE_TEXT="Case \$case_id"
 PENDING_TEXT=" .... "
-PASS_TEXT="✔️ Pass"
-FAIL_TEXT="⤫ Fail"
-RESET_LINE=""
+PASS_TEXT="✔︎ Pass"
+FAIL_TEXT="x Fail"
+RESET_LINE="\n"
 NORMAL_COLOR=""
 PASS_COLOR=""
 FAIL_COLOR=""
