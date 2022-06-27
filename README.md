@@ -68,6 +68,7 @@ A simple tool that helps you WA faster, therefore AC faster.
 4. Test ACBoost itself.
 
     ```shell
+    cd metatest
     # Create test projects
     make create-test-projects
     # Run test
