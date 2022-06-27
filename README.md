@@ -27,10 +27,7 @@ A simple tool that helps you WA faster, therefore AC faster.
 
     An example output (with the ac_boost theme).
 
-    > [<span style="color:green">✔︎ AC</span>] Case 1  
-    > [<span style="color:green">✔︎ AC</span>] Case 2  
-    > [<span style="color:green">✔︎ AC</span>] Case 3  
-    > <span style="color:green">All cases AC.</span>
+    ![AC example](docs/ac-example.png)
 
 5. Enjoy your WAs and ACs.
 

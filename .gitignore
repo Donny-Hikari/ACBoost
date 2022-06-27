@@ -2,6 +2,7 @@
 !/scripts/
 !/themes/
 !/templates/
+!/docs/
 !/test/
 /test/*/build/*
 !/test/meta_test/build/*
