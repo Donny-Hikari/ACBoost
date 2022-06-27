@@ -6,11 +6,8 @@ endif
 scriptsdir=$(ACBOOST_ROOT)/scripts
 entry=build/main
 
-test: build
+test:
 	@$(scriptsdir)/test
-
-build: src/*.cpp
-	g++ -o $(entry) src/*.cpp --std=c++11
 
 run:
 	@./$(entry) < "cases/$(N).in"
@@ -20,6 +17,3 @@ diff:
 
 lastnewline:
 	@bash $(scriptsdir)/lastnewline
-
-clean:
-	@rm $(entry)

@@ -1,5 +1,5 @@
 
-# WABoost
+# ACBoost
 
 A simple tool that helps you WA faster, therefore AC faster.
 
@@ -46,4 +46,11 @@ A simple tool that helps you WA faster, therefore AC faster.
     ```shell
     ACBOOST_ROOT=$your_ACBOOST_ROOT
     ACBOOST_THEME=$ACBOOST_ROOT/themes/ac_boost
+    ```
+
+3. Test ACBoost itself.
+
+    ```shell
+    pushd test/meta_test
+    make test
     ```

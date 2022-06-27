@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$ACBOOST_ROOT" ]; then
+	ACBOOST_ROOT=../..
+fi
+
+read case_dir
+
+pushd $case_dir >/dev/null
+ACBOOST_THEME=$ACBOOST_ROOT/themes/plain make test -B

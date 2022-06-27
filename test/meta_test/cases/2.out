@@ -1,0 +1,8 @@
+[ .... ] Case 1 [✔️ Pass] Case 1
+[ .... ] Case 2 [⤫ Fail] Case 2
+=> Input:
+
+=> Output:
+     1	Pass						      |	     1	Fail
+make[4]: *** [diff] Error 1
+1/2 cases failed.
