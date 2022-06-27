@@ -1,0 +1,17 @@
+
+scriptsdir=../../scripts
+
+test: build
+	@$(scriptsdir)/test
+
+build: src/*.cpp
+	g++ -o build/main src/*.cpp --std=c++11
+
+run: build
+	./build/main < "cases/$(N).in"
+
+diff:
+	bash $(scriptsdir)/compare $(N)
+
+lastnewline:
+	@bash $(scriptsdir)/lastnewline

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+CASE_TEXT="Case \$case_id"
+PENDING_TEXT=" .... "
+PASS_TEXT="✔️ Pass"
+FAIL_TEXT="⤫ Fail"
+NORMAL_COLOR="\e[0m"
+PASS_COLOR="\e[32m"
+FAIL_COLOR="\e[31m"
+PASS_SUMMARY="All cases passed." # $n_pass, $n_cases
+FAIL_SUMMARY="\$n_fail/\$n_cases cases failed." # $n_pass, $n_cases
+
+if [[ ! -z $ACBOOST_THEME ]]; then
+  . $ACBOOST_THEME
+fi
+
+declare -i n_pass=0
+all_cases=$(cd cases && find *.in | sort -h)
+IFS=$'\n' read -d '' -r -a all_cases <<< "$all_cases"
+declare -i n_cases=${#all_cases[@]}
+for f in "${all_cases[@]}"; do
+  case_id=${f%\.*}
+  case_text=$(eval "echo \"$CASE_TEXT\"")
+  printf "[$PENDING_TEXT] $case_text "
+  res=$(make -s diff N="$case_id" 2>&1)
+  if [ $? == 0 ]; then
+    printf "\r[${PASS_COLOR}${PASS_TEXT}${NORMAL_COLOR}\n"
+    n_pass+=1
+  else
+    printf "\r[${FAIL_COLOR}${FAIL_TEXT}${NORMAL_COLOR}] ${FAIL_COLOR}${case_text}${NORMAL_COLOR}\n"
+  fi
+  if [[ ! -z "$res" ]]; then
+    echo "=> Input:"
+    nl cases/$case_id.in
+    echo
+    echo "=> Output:"
+    printf "$res\n"
+  fi
+done
+if [[ $n_pass -lt $n_cases ]]; then
+  declare -i n_fail=$n_cases-$n_pass
+  fail_summary=$(eval "echo \"$FAIL_SUMMARY\"")
+  printf "${FAIL_COLOR}${fail_summary}${NORMAL_COLOR}\n"
+else
+  pass_summary=$(eval "echo \"$PASS_SUMMARY\"")
+  printf "${PASS_COLOR}${pass_summary}${NORMAL_COLOR}\n"
+fi
