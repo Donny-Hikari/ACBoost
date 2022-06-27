@@ -12,7 +12,7 @@ test: build
 build: src/*.cpp
 	g++ -o $(entry) src/*.cpp --std=c++11
 
-run:
+run: build
 	@./$(entry) < "cases/$(N).in"
 
 diff:
